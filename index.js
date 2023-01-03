@@ -123,7 +123,14 @@ if (amount < greatestDecreaseAmount) {
   }
 }
 
-const averageChange = changeSum / (finances.length - 1); 
+//Calculate the average of the changes in Profit/Losses
+const averageChange = changeSum / (finances.length - 1);
+//Rounded up the number of the Avarage change
+const roundToHundredth = (averageChange) => {
+    return Number(averageChange.toFixed(2));
+};
+
+//This constants are created to make console.log shorter and easy to read
 const greatestIncreaseMonth = finances[greatestIncrease][0];
 const greatestIncreaseAmount = finances[greatestIncrease][1];
 const greatestDecreaseMonth = finances[greatestDecrease][0];
@@ -134,7 +141,7 @@ console.log(
     + '----------------------------\n'
     + `Total Months: ${finances.length}\n` // Returns number of elements in array
     + `Total Amount of Profit/Losses: $${sum}\n`
-    + `Average Change: $${averageChange}\n`
+    + `Average Change: $${roundToHundredth(averageChange)}\n`
     + `Greatest Increase in Profits: ${greatestIncreaseMonth} ($${greatestIncreaseAmount})\n`
     + `Greatest Decrease in Profits: ${greatestDecreaseMonth} ($${greatestDecreaseAmount})\n`
 );
