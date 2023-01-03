@@ -86,3 +86,35 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+//Created Variables
+let sum = 0;
+
+// "i" for iteration. 
+//Created loop that runs 86 times(finances.length), with values of step 0 through 85.
+for (let i = 0; i <finances.length; i++) {
+  //Get array element out of array of arrays
+  const elem = finances[i];
+  //Get first element from array (first element is always 0 in array)
+  const date = elem[0];
+  //Get second element from array
+  const amount = elem[1];
+  //Calculate total amount
+  sum += amount;
+}
+
+console.log(
+    'Financial Analysis\n'
+    + '----------------------------\n'
+    + `Total Months: ${finances.length}\n` // Returns number of elements in array
+    + `Total Amount of Profit/Losses: $${sum}\n`
+);
+
+
+
+
+
+
+
+
+
