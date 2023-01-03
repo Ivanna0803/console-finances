@@ -89,6 +89,8 @@ var finances = [
 
 //Created Variables
 let sum = 0;
+let changeSum = 0;
+let greatestIncrease = 0;
 
 // "i" for iteration. 
 //Created loop that runs 86 times(finances.length), with values of step 0 through 85.
@@ -101,13 +103,29 @@ for (let i = 0; i <finances.length; i++) {
   const amount = elem[1];
   //Calculate total amount
   sum += amount;
+
+//Calculate difference betwen amount of each mounth in the array
+if (i > 0) {
+  changeSum += amount - finances[i - 1][1];
+  }
+
+const greatestIncreaseAmount = finances[greatestIncrease][1];
+if (amount > greatestIncreaseAmount){
+    greatestIncrease = i;
+  }
 }
+
+const averageChange = changeSum / (finances.length - 1);
+const greatestIncreaseMonth = finances[greatestIncrease][0];
+const greatestIncreaseAmount = finances[greatestIncrease][1];
 
 console.log(
     'Financial Analysis\n'
     + '----------------------------\n'
     + `Total Months: ${finances.length}\n` // Returns number of elements in array
     + `Total Amount of Profit/Losses: $${sum}\n`
+    + `Average Change: $${averageChange}\n`
+    + `Greatest Increase in Profits: ${greatestIncreaseMonth} ($${greatestIncreaseAmount})\n`
 );
 
 
