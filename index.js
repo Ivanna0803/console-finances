@@ -125,7 +125,7 @@ if (amount < greatestDecreaseAmount) {
 
 //Calculate the average of the changes in Profit/Losses
 const averageChange = changeSum / (finances.length - 1);
-//Rounded up the number of the Avarage change
+//Rounded up the number of the average change
 const roundToHundredth = (averageChange) => {
     return Number(averageChange.toFixed(2));
 };
