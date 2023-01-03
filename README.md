@@ -22,7 +22,7 @@ As a result, was written JavaScript code that analyzes the records and calculate
 “N/A”
 
 ## Usage
-To open deployed application, please follow the link:
+To open deployed application, please follow the link: https://ivanna0803.github.io/console-finances/
 
 ## License
 MIT license
