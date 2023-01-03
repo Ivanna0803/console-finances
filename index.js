@@ -91,6 +91,7 @@ var finances = [
 let sum = 0;
 let changeSum = 0;
 let greatestIncrease = 0;
+let greatestDecrease = 0;
 
 // "i" for iteration. 
 //Created loop that runs 86 times(finances.length), with values of step 0 through 85.
@@ -101,23 +102,32 @@ for (let i = 0; i <finances.length; i++) {
   const date = elem[0];
   //Get second element from array
   const amount = elem[1];
-  //Calculate total amount
+  //Calculate total amount of Profit/Losses over the entire period
   sum += amount;
 
-//Calculate difference betwen amount of each mounth in the array
+//Calculates the difference between amount of each month in the array
 if (i > 0) {
   changeSum += amount - finances[i - 1][1];
   }
 
+//Check the difference between amount of each month in the array, and runs the greatest one
 const greatestIncreaseAmount = finances[greatestIncrease][1];
-if (amount > greatestIncreaseAmount){
+if (amount > greatestIncreaseAmount) {
     greatestIncrease = i;
+  }
+
+//Check the difference between amount of each month in the array, and runs the smallest one
+const greatestDecreaseAmount = finances[greatestDecrease][1];
+if (amount < greatestDecreaseAmount) {
+    greatestDecrease = i;
   }
 }
 
-const averageChange = changeSum / (finances.length - 1);
+const averageChange = changeSum / (finances.length - 1); 
 const greatestIncreaseMonth = finances[greatestIncrease][0];
 const greatestIncreaseAmount = finances[greatestIncrease][1];
+const greatestDecreaseMonth = finances[greatestDecrease][0];
+const greatestDecreaseAmount = finances[greatestDecrease][1];
 
 console.log(
     'Financial Analysis\n'
@@ -126,6 +136,7 @@ console.log(
     + `Total Amount of Profit/Losses: $${sum}\n`
     + `Average Change: $${averageChange}\n`
     + `Greatest Increase in Profits: ${greatestIncreaseMonth} ($${greatestIncreaseAmount})\n`
+    + `Greatest Decrease in Profits: ${greatestDecreaseMonth} ($${greatestDecreaseAmount})\n`
 );
 
 
